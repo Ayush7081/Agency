@@ -1,17 +1,51 @@
-// Typing effect for hero headline
+// Changing text effect for hero headline
 const typewriter = document.querySelector('.typewriter');
 if (typewriter) {
-  const text = typewriter.textContent;
-  typewriter.textContent = '';
-  let i = 0;
-  const typing = setInterval(() => {
-    if (i < text.length) {
-      typewriter.textContent += text[i];
-      i++;
+  const phrases = [
+    'We Make Brands Go Viral 🚀',
+    'Skyrocketing Your Reach 🌟',
+    'Ignite Your Digital Success 🔥',
+    'Transform Clicks to Conversions 💥'
+  ];
+  let phraseIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const typingSpeed = 100;
+  const deletingSpeed = 50;
+  const pauseDuration = 1500;
+
+  function type() {
+    const currentPhrase = phrases[phraseIndex];
+    if (!isDeleting) {
+      // Typing
+      if (charIndex < currentPhrase.length) {
+        typewriter.textContent = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
+        setTimeout(type, typingSpeed);
+      } else {
+        // Pause before deleting
+        setTimeout(() => {
+          isDeleting = true;
+          type();
+        }, pauseDuration);
+      }
     } else {
-      clearInterval(typing);
+      // Deleting
+      if (charIndex > 0) {
+        typewriter.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(type, deletingSpeed);
+      } else {
+        // Move to next phrase
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        setTimeout(type, typingSpeed);
+      }
     }
-  }, 100);
+  }
+
+  // Start typing effect
+  type();
 }
 
 // Animate sections on scroll
