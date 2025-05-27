@@ -1,6 +1,6 @@
 /* Base styles */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family:'Calibri','Helvetica' ;
   margin: 0;
   background: #0f1115;
   color: #ffffff;
@@ -18,6 +18,16 @@ body {
   top: 0;
   z-index: 1000;
   box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.logo-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo-link:hover,
+.logo-link:focus {
+  text-decoration: none;
 }
 
 .logo span {
