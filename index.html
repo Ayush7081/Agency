@@ -12,15 +12,15 @@
 </head>
 <body>
   <header class="main-header">
- <a href="/" class="logo-link">
+    <a href="/" class="logo-link">
       <h1 class="logo">ViralVibe <span>Media</span></h1>
     </a>
-    <button class="hamburger" aria-label="Toggle navigation">
+    <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
       <span></span>
       <span></span>
       <span></span>
     </button>
-    <nav class="nav-menu">
+    <nav class="nav-menu" aria-label="Main navigation">
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
@@ -32,7 +32,7 @@
 
   <section class="hero-section">
     <div class="hero-content">
-      <h2 class="typewriter">We Make Brands Go Viral 🚀</h2>
+      <h2 class="typewriter" aria-live="polite">We Make Brands Go Viral 🚀</h2>
       <p>From clicks to conversions, we fuel your digital domination.</p>
       <button class="cta-btn">Let's Work Together</button>
     </div>
@@ -46,12 +46,36 @@
   <section id="services" class="section">
     <h2>Our Services</h2>
     <div class="services-grid">
-      <div class="service-card">📊 Social Strategy</div>
-      <div class="service-card">🎥 Content Creation</div>
-      <div class="service-card">📢 Paid Media Ads</div>
-      <div class="service-card">🤝 Influencer Marketing</div>
-      <div class="service-card">🔍 SEO Optimization</div>
-      <div class="service-card">🌐 Web & UI Design</div>
+      <div class="service-card">
+        <img src="https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/k-s6-nat-7556-lyj1858-2-strategy.jpg?w=1200&h=1200&dpr=1&fit=clip&crop=default&fm=jpg&q=75&vib=3&con=3&usm=15&cs=srgb&bg=F4F4F3&ixlib=js-2.2.1&s=39a183cbd9fbca4dc6a31268fc26f7b3" alt="Social media strategy icon" loading="lazy">
+        <h3>Social Strategy</h3>
+        <p>📊 Data-driven social media plans to boost engagement.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://media.istockphoto.com/vectors/online-content-creator-vector-id1388863545?k=20&m=1388863545&s=612x612&w=0&h=qp_SRPvWtn0EUNgFCcv75KWxCF8n4KcHpZ0cDk046ok=" alt="Content creation icon" loading="lazy">
+        <h3>Content Creation</h3>
+        <p>🎥 Eye-catching videos and graphics that captivate.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://www.oneclickmedia.com.au/wp-content/uploads/2022/09/Paid_Advertising_Ads.webp" alt="Paid media ads icon" loading="lazy">
+        <h3>Paid Media Ads</h3>
+        <p>📢 Targeted ad campaigns for maximum ROI.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://www.legalandcreative.com/wp-content/uploads/2019/03/influencer-marketing.jpg" alt="Influencer marketing icon" loading="lazy">
+        <h3>Influencer Marketing</h3>
+        <p>🤝 Partner with influencers to amplify your brand.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://dientungaynay.vn/sites/default/files/styles/img_noidung/public/xuanla/Seo_Contents/mo-hinh-seo-tong-the.jpg?itok=zkEbmu29" alt="SEO optimization icon" loading="lazy">
+        <h3>SEO Optimization</h3>
+        <p>🔍 Rank higher and drive organic traffic.</p>
+      </div>
+      <div class="service-card">
+        <img src="https://www.winklix.com/blog/wp-content/uploads/2020/09/df1facf1978a7500f4d78f8fd2b09e9c.jpg" alt="Web and UI design icon" loading="lazy">
+        <h3>Web & UI Design</h3>
+        <p>🌐 Stunning, user-friendly websites that convert.</p>
+      </div>
     </div>
   </section>
 
@@ -70,10 +94,11 @@
   <section id="contact" class="section">
     <h2>Contact Us</h2>
     <div class="contact-form">
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
+      <div role="alert" class="form-message" aria-live="polite"></div>
+      <input type="text" placeholder="Your Name" aria-label="Your Name" required />
+      <input type="email" placeholder="Your Email" aria-label="Your Email" required />
+      <textarea placeholder="Your Message" aria-label="Your Message" required></textarea>
+      <button type="submit" aria-label="Send Message">Send Message</button>
     </div>
   </section>
 
