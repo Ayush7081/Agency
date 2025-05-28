@@ -1,6 +1,6 @@
 /* Base styles */
 body {
-  font-family:'Calibri','Helvetica' ;
+  font-family: 'Calibri', 'Helvetica', sans-serif;
   margin: 0;
   background: #0f1115;
   color: #ffffff;
@@ -84,7 +84,8 @@ body {
   transition: color 0.3s;
 }
 
-.nav-menu ul li a:hover {
+.nav-menu ul li a:hover,
+.nav-menu ul li a:focus {
   color: #00fff7;
 }
 
@@ -94,6 +95,10 @@ body {
   padding: 5rem 5%;
   text-align: center;
   animation: fadeIn 1.5s ease-in;
+}
+
+.hero-content {
+  min-height: 150px; /* Prevent layout shift from typewriter */
 }
 
 .hero-content h2 {
@@ -120,7 +125,8 @@ body {
   font-size: 1rem;
 }
 
-.cta-btn:hover {
+.cta-btn:hover,
+.cta-btn:focus {
   transform: scale(1.1);
 }
 
@@ -143,7 +149,29 @@ body {
   margin-top: 2rem;
 }
 
-.service-card, .blog-card {
+.service-card {
+  background: #1d1f27;
+  padding: 1.5rem;
+  border-radius: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
+}
+
+.service-card img {
+  width: 100%;
+  height: auto;
+  max-height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.service-card h3 {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.blog-card {
   background: #1d1f27;
   padding: 1.5rem;
   border-radius: 15px;
@@ -163,6 +191,12 @@ body {
   gap: 1rem;
   max-width: 600px;
   margin: auto;
+}
+
+.form-message {
+  color: #00fff7;
+  font-size: 1rem;
+  text-align: center;
 }
 
 .contact-form input,
@@ -188,7 +222,8 @@ body {
   font-size: 1rem;
 }
 
-.contact-form button:hover {
+.contact-form button:hover,
+.contact-form button:focus {
   transform: scale(1.05);
 }
 
@@ -282,5 +317,9 @@ footer {
   .contact-form textarea,
   .contact-form button {
     font-size: 0.9rem;
+  }
+
+  .service-card img {
+    max-height: 120px;
   }
 }
