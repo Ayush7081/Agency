@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Level up your brand with ViralVibe Media - a futuristic and animated social media marketing agency that turns attention into conversion." />
-  <meta name="keywords" content="Social Media, Marketing Agency, Viral Campaign, Digital Ads, SEO, Influencer, Animation, Web Design" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Elevate your brand with ViralVibe Media - professional social media marketing with viral campaigns.">
+  <meta name="keywords" content="Social Media, Marketing Agency, Viral Campaign, Digital Ads, SEO, Influencer, Web Design">
   <meta name="author" content="ViralVibe Media">
-  <title>ViralVibe Media - Go Viral or Go Home</title>
-  <link rel="stylesheet" href="index.css" />
+  <title>ViralVibe Media - Professional Marketing Solutions</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="index.css">
   <script defer src="index.js"></script>
 </head>
 <body>
   <header class="main-header">
-    <a href="/" class="logo-link">
+    <a href="/" class="logo-link" aria-label="ViralVibe Media Home">
       <h1 class="logo">ViralVibe <span>Media</span></h1>
     </a>
     <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
@@ -22,88 +24,181 @@
     </button>
     <nav class="nav-menu" aria-label="Main navigation">
       <ul>
+        <li><a href="#hero">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
+        <li class="dropdown">
+          <a href="#services" class="dropdown-toggle">Services <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="#social-strategy">Social Strategy</a></li>
+            <li><a href="#content-creation">Content Creation</a></li>
+            <li><a href="#paid-media">Paid Media Ads</a></li>
+            <li><a href="#influencer-marketing">Influencer Marketing</a></li>
+            <li><a href="#seo">SEO Optimization</a></li>
+            <li><a href="#web-ui">Web & UI Design</a></li>
+          </ul>
+        </li>
         <li><a href="#blogs">Blogs</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="hero-section">
+  <section id="hero" class="hero-section">
+    <div class="particle-bg"></div>
     <div class="hero-content">
       <h2 class="typewriter" aria-live="polite">We Make Brands Go Viral 🚀</h2>
-      <p>From clicks to conversions, we fuel your digital domination.</p>
-      <button class="cta-btn">Let's Work Together</button>
+      <p>Elevate your digital presence with our expert marketing strategies.</p>
+      <a href="#contact" class="cta-btn" aria-label="Schedule a discovery call">Schedule a Discovery Call</a>
     </div>
   </section>
 
-  <section id="about" class="section">
-    <h2>About Us</h2>
-    <p>We’re a bold team of creators, strategists, and digital innovators. ViralVibe Media crafts viral marketing campaigns powered by AI, data, and creativity.</p>
+  <section id="about" class="section about-section">
+    <div class="about-container">
+      <div class="about-image">
+        <img src="https://teambuildinghub.com/wp-content/uploads/2022/06/team-building-nashville-pile-of-hands-teamwork-1024x538.webp" alt="Team collaborating" loading="lazy">
+      </div>
+      <div class="about-content">
+        <h2>About Us</h2>
+        <p>ViralVibe Media is a team of strategists, creatives, and digital experts. We leverage AI, data insights, and innovative campaigns to deliver measurable results and amplify your brand’s reach.</p>
+        <a href="#contact" class="about-cta">Get in Touch</a>
+      </div>
+    </div>
   </section>
 
   <section id="services" class="section">
     <h2>Our Services</h2>
     <div class="services-grid">
-      <div class="service-card">
-        <img src="https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/k-s6-nat-7556-lyj1858-2-strategy.jpg?w=1200&h=1200&dpr=1&fit=clip&crop=default&fm=jpg&q=75&vib=3&con=3&usm=15&cs=srgb&bg=F4F4F3&ixlib=js-2.2.1&s=39a183cbd9fbca4dc6a31268fc26f7b3" alt="Social media strategy icon" loading="lazy">
-        <h3>Social Strategy</h3>
-        <p>📊 Data-driven social media plans to boost engagement.</p>
-      </div>
-      <div class="service-card">
-        <img src="https://media.istockphoto.com/vectors/online-content-creator-vector-id1388863545?k=20&m=1388863545&s=612x612&w=0&h=qp_SRPvWtn0EUNgFCcv75KWxCF8n4KcHpZ0cDk046ok=" alt="Content creation icon" loading="lazy">
-        <h3>Content Creation</h3>
-        <p>🎥 Eye-catching videos and graphics that captivate.</p>
-      </div>
-      <div class="service-card">
-        <img src="https://www.oneclickmedia.com.au/wp-content/uploads/2022/09/Paid_Advertising_Ads.webp" alt="Paid media ads icon" loading="lazy">
-        <h3>Paid Media Ads</h3>
-        <p>📢 Targeted ad campaigns for maximum ROI.</p>
-      </div>
-      <div class="service-card">
-        <img src="https://www.legalandcreative.com/wp-content/uploads/2019/03/influencer-marketing.jpg" alt="Influencer marketing icon" loading="lazy">
-        <h3>Influencer Marketing</h3>
-        <p>🤝 Partner with influencers to amplify your brand.</p>
-      </div>
-      <div class="service-card">
-        <img src="https://dientungaynay.vn/sites/default/files/styles/img_noidung/public/xuanla/Seo_Contents/mo-hinh-seo-tong-the.jpg?itok=zkEbmu29" alt="SEO optimization icon" loading="lazy">
-        <h3>SEO Optimization</h3>
-        <p>🔍 Rank higher and drive organic traffic.</p>
-      </div>
-      <div class="service-card">
-        <img src="https://www.winklix.com/blog/wp-content/uploads/2020/09/df1facf1978a7500f4d78f8fd2b09e9c.jpg" alt="Web and UI design icon" loading="lazy">
-        <h3>Web & UI Design</h3>
-        <p>🌐 Stunning, user-friendly websites that convert.</p>
-      </div>
+      <a href="#social-strategy" class="service-card" data-tilt>
+        <div class="service-card-inner">
+          <img src="https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/k-s6-nat-7556-lyj1858-2-strategy.jpg?w=1200&h=1200&dpr=1&fit=clip&crop=default&fm=jpg&q=75&vib=3&con=3&usm=15&cs=srgb&bg=F4F4F3&ixlib=js-2.2.1&s=39a183cbd9fbca4dc6a31268fc26f7b3" alt="Social media strategy icon" loading="lazy">
+          <h3>Social Strategy</h3>
+          <p>📊 Data-driven plans to boost engagement.</p>
+        </div>
+      </a>
+      <a href="#content-creation" class="service-card" data-tilt>
+        <div class="service-card-inner">
+          <img src="https://media.istockphoto.com/vectors/online-content-creator-vector-id1388863545?k=20&m=1388863545&s=612x612&w=0&h=qp_SRPvWtn0EUNgFCcv75KWxCF8n4KcHpZ0cDk046ok=" alt="Content creation icon" loading="lazy">
+          <h3>Content Creation</h3>
+          <p>🎥 Compelling visuals that captivate audiences.</p>
+        </div>
+      </a>
+      <a href="#paid-media" class="service-card" data-tilt>
+        <div class="service-card-inner">
+          <img src="https://www.oneclickmedia.com.au/wp-content/uploads/2022/09/Paid_Advertising_Ads.webp" alt="Paid media ads icon" loading="lazy">
+          <h3>Paid Media Ads</h3>
+          <p>📢 Targeted campaigns for maximum ROI.</p>
+        </div>
+      </a>
+      <a href="#influencer-marketing" class="service-card" data-tilt>
+        <div class="service-card-inner">
+          <img src="https://www.legalandcreative.com/wp-content/uploads/2019/03/influencer-marketing.jpg" alt="Influencer marketing icon" loading="lazy">
+          <h3>Influencer Marketing</h3>
+          <p>🤝 Amplify your brand with influencer partnerships.</p>
+        </div>
+      </a>
+      <a href="#seo" class="service-card" data-tilt>
+        <div class="service-card-inner">
+          <img src="https://dientungaynay.vn/sites/default/files/styles/img_noidung/public/xuanla/Seo_Contents/mo-hinh-seo-tong-the.jpg?itok=zkEbmu29" alt="SEO optimization icon" loading="lazy">
+          <h3>SEO Optimization</h3>
+          <p>🔍 Improve rankings and drive organic traffic.</p>
+        </div>
+      </a>
+      <a href="#web-ui" class="service-card" data-tilt>
+        <div class="service-card-inner">
+          <img src="https://www.winklix.com/blog/wp-content/uploads/2020/09/df1facf1978a7500f4d78f8fd2b09e9c.jpg" alt="Web and UI design icon" loading="lazy">
+          <h3>Web & UI Design</h3>
+          <p>🌐 User-friendly websites that convert.</p>
+        </div>
+      </a>
     </div>
   </section>
 
   <section id="blogs" class="section">
     <h2>Latest Blogs</h2>
-    <article class="blog-card">
-      <h3>🚀 10 Viral Hacks Every Brand Should Know</h3>
-      <p>Boost engagement and go viral using data-backed social media tactics.</p>
-    </article>
-    <article class="blog-card">
-      <h3>🔥 AI in Marketing: Future or Hype?</h3>
-      <p>Explore how artificial intelligence is revolutionizing the way brands communicate online.</p>
-    </article>
+    <div class="container">
+      <a href="/blog/beach" class="card" data-tilt>
+        <div class="card-inner">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Beach">
+          <div class="card-content">
+            <h3>Explore the Beach</h3>
+            <p>Discover serene beaches with crystal-clear waters.</p>
+          </div>
+        </div>
+      </a>
+      <a href="/blog/mountains" class="card" data-tilt>
+        <div class="card-inner">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Mountains">
+          <div class="card-content">
+            <h3>Mountain Adventure</h3>
+            <p>Hike breathtaking trails with stunning views.</p>
+          </div>
+        </div>
+      </a>
+      <a href="/blog/forest" class="card" data-tilt>
+        <div class="card-inner">
+          <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba" alt="Forest">
+          <div class="card-content">
+            <h3>Forest Retreat</h3>
+            <p>Embrace tranquility in lush green forests.</p>
+          </div>
+        </div>
+      </a>
+    </div>
   </section>
 
   <section id="contact" class="section">
     <h2>Contact Us</h2>
-    <div class="contact-form">
+    <form class="contact-form" aria-label="Contact form">
       <div role="alert" class="form-message" aria-live="polite"></div>
-      <input type="text" placeholder="Your Name" aria-label="Your Name" required />
-      <input type="email" placeholder="Your Email" aria-label="Your Email" required />
+      <input type="text" placeholder="Your Name" aria-label="Your Name" required>
+      <input type="email" placeholder="Your Email" aria-label="Your Email" required>
       <textarea placeholder="Your Message" aria-label="Your Message" required></textarea>
       <button type="submit" aria-label="Send Message">Send Message</button>
-    </div>
+    </form>
   </section>
 
   <footer>
-    <p>© 2025 ViralVibe Media. All rights reserved.</p>
+    <div class="footer-bg" id="footer-text">ViralVibe Media</div>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="#social-strategy">Social Strategy</a></li>
+          <li><a href="#content-creation">Content Creation</a></li>
+          <li><a href="#paid-media">Paid Media Ads</a></li>
+          <li><a href="#influencer-marketing">Influencer Marketing</a></li>
+          <li><a href="#seo">SEO Optimization</a></li>
+          <li><a href="#web-ui">Web & UI Design</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Details</h3>
+        <div class="contact-details">
+          <p>Email: <a href="mailto:info@viralvibemedia.com">info@viralvibemedia.com</a></p>
+          <p>Phone: <a href="tel:+11234567890">+1 (123) 456-7890</a></p>
+          <p>Address: 123 Business St, City, Country</p>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>About</h3>
+        <ul>
+          <li><a href="#our-story">Our Story</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#careers">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="social-links">
+          <a href="https://x.com" target="_blank" aria-label="Follow us on X"><i class="fab fa-x-twitter"></i></a>
+          <a href="https://instagram.com" target="_blank" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://linkedin.com" target="_blank" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 ViralVibe Media. All Rights Reserved.</p>
+    </div>
   </footer>
 </body>
 </html>
