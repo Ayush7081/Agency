@@ -1,18 +1,17 @@
-// Typewriter effect for hero headline
 const typewriter = document.querySelector('.typewriter');
 if (typewriter) {
   const phrases = [
     'We Make Brands Go Viral 🚀',
-    'Skyrocketing Your Reach 🌟',
-    'Ignite Your Digital Success 🔥',
-    'Transform Clicks to Conversions 💥'
+    'Elevate Your Brand 🌟',
+    'Drive Measurable Results 🔥',
+    'Transform Your Digital Presence 💥'
   ];
   let phraseIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
-  const typingSpeed = 100;
-  const deletingSpeed = 50;
-  const pauseDuration = 1500;
+  const typeSpeed = 100;
+  const deleteSpeed = 50;
+  const pauseDelay = 1500;
 
   function type() {
     const currentPhrase = phrases[phraseIndex];
@@ -20,22 +19,22 @@ if (typewriter) {
       if (charIndex < currentPhrase.length) {
         typewriter.textContent = currentPhrase.substring(0, charIndex + 1);
         charIndex++;
-        setTimeout(type, typingSpeed);
+        setTimeout(type, typeSpeed);
       } else {
         setTimeout(() => {
           isDeleting = true;
           type();
-        }, pauseDuration);
+        }, pauseDelay);
       }
     } else {
       if (charIndex > 0) {
         typewriter.textContent = currentPhrase.substring(0, charIndex - 1);
         charIndex--;
-        setTimeout(type, deletingSpeed);
+        setTimeout(type, deleteSpeed);
       } else {
         isDeleting = false;
         phraseIndex = (phraseIndex + 1) % phrases.length;
-        setTimeout(type, typingSpeed);
+        setTimeout(type, typeSpeed);
       }
     }
   }
@@ -43,7 +42,6 @@ if (typewriter) {
   type();
 }
 
-// Animate sections on scroll
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -53,12 +51,11 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.section').forEach(section => {
+document.querySelectorAll('.section, footer').forEach(section => {
   section.classList.add('hidden');
   observer.observe(section);
 });
 
-// Hamburger menu toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
@@ -78,43 +75,83 @@ if (hamburger && navMenu) {
     });
   });
 
-  // Close menu on outside click
-  document.addEventListener('click', (e) => {
-    if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+  document.addEventListener('mousedown', (evt) => {
+    if (!navMenu.contains(evt.target) && !hamburger.contains(evt.target)) {
       hamburger.setAttribute('aria-expanded', 'false');
       hamburger.classList.remove('active');
       navMenu.classList.remove('active');
     }
   });
 
-  // Accessibility: Handle keyboard navigation
-  hamburger.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
+  hamburger.addEventListener('keydown', (evt) => {
+    if (evt.key === 'Enter' || evt.key === ' ') {
+      evt.preventDefault();
       hamburger.click();
     }
   });
 }
 
-// Contact form handling
+let lastTiltTime = 0;
+const throttleDelay = 16;
+
+document.querySelectorAll('[data-tilt]').forEach(card => {
+  card.addEventListener('mousemove', (evt) => {
+    const now = Date.now();
+    if (now - lastTiltTime < throttleDelay) return;
+    lastTiltTime = now;
+
+    const rect = card.getBoundingClientRect();
+    const x = evt.clientX - rect.left;
+    const y = evt.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const tiltX = (y - centerY) / centerY * 10;
+    const tiltY = (centerX - x) / centerX * 10;
+    card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+  });
+
+  card.addEventListener('touchmove', (evt) => {
+    evt.preventDefault();
+    const touch = evt.touches[0];
+    const rect = card.getBoundingClientRect();
+    const x = touch.clientX - rect.left;
+    const y = touch.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const tiltX = (y - centerY) / centerY * 10;
+    const tiltY = (centerX - x) / centerX * 10;
+    card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+  });
+
+  card.addEventListener('touchend', () => {
+    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+  });
+});
+
 const contactForm = document.querySelector('.contact-form');
 const formMessage = document.querySelector('.form-message');
 
 if (contactForm && formMessage) {
-  contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const formData = new FormData(contactForm);
+  contactForm.addEventListener('submit', async (evt) => {
+    evt.preventDefault();
     formMessage.textContent = 'Sending message...';
-
-    // Simulate form submission (replace with actual API call)
     try {
-      await new Promise(resolve => setTimeout(resolve, 1000)); // Simulated delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
       formMessage.textContent = 'Message sent successfully!';
-      formMessage.style.color = '#00fff7';
+      formMessage.style.color = '#26a69a';
       contactForm.reset();
-    } catch (error) {
+    } catch (err) {
       formMessage.textContent = 'Error sending message. Please try again.';
       formMessage.style.color = '#ff4d4d';
     }
   });
+}
+
+const footerText = document.getElementById('footer-text');
+if (footerText) {
+  footerText.textContent = 'ViralVibe Media';
 }
