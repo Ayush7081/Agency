@@ -335,6 +335,7 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
+  touch-action: auto;
 }
 
 .service-card {
@@ -395,6 +396,11 @@ body {
   box-shadow: 0 8px 24px rgba(38, 166, 154, 0.2);
 }
 
+.service-card.touched {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(38, 166, 154, 0.5);
+}
+
 /* Blog Section */
 .container {
   display: flex;
@@ -403,6 +409,7 @@ body {
   gap: 20px;
   max-width: 1200px;
   margin: 0 auto;
+  touch-action: auto;
 }
 
 .card {
@@ -464,6 +471,11 @@ body {
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 24px rgba(38, 166, 154, 0.2);
+}
+
+.card.touched {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(38, 166, 154, 0.5);
 }
 
 /* Contact Form */
@@ -682,6 +694,15 @@ footer {
   transform: translateY(0);
 }
 
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .service-card,
+  .card {
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .hamburger {
@@ -769,7 +790,7 @@ footer {
 
 @media (max-width: 480px) {
   .hero-content h2 {
-    font-size: clamp(1.6rem, 4.6rem, 4.5vw,);
+    font-size: clamp(1.6rem, 4.5vw, 2.5rem);
     min-height: 60px;
   }
 
