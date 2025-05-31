@@ -95,6 +95,19 @@ let lastTiltTime = 0;
 const throttleDelay = 16;
 
 document.querySelectorAll('[data-tilt]').forEach(card => {
+  let isTouching = false;
+  let touchStartTime = 0;
+  const touchDurationThreshold = 100;
+  let tiltRequestId = null;
+
+  const applyTilt = (x, y, rect) => {
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const tiltX = (y - centerY) / centerY * 10;
+    const tiltY = (centerX - x) / centerX * 10;
+    card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+  };
+
   card.addEventListener('mousemove', (evt) => {
     const now = Date.now();
     if (now - lastTiltTime < throttleDelay) return;
@@ -103,31 +116,39 @@ document.querySelectorAll('[data-tilt]').forEach(card => {
     const rect = card.getBoundingClientRect();
     const x = evt.clientX - rect.left;
     const y = evt.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const tiltX = (y - centerY) / centerY * 10;
-    const tiltY = (centerX - x) / centerX * 10;
-    card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+
+    cancelAnimationFrame(tiltRequestId);
+    tiltRequestId = requestAnimationFrame(() => applyTilt(x, y, rect));
   });
 
   card.addEventListener('mouseleave', () => {
+    cancelAnimationFrame(tiltRequestId);
     card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
   });
 
+  card.addEventListener('touchstart', (evt) => {
+    isTouching = true;
+    touchStartTime = Date.now();
+  });
+
   card.addEventListener('touchmove', (evt) => {
-    evt.preventDefault();
+    if (!isTouching) return;
+
+    const touchDuration = Date.now() - touchStartTime;
+    if (touchDuration > touchDurationThreshold) return;
+
     const touch = evt.touches[0];
     const rect = card.getBoundingClientRect();
     const x = touch.clientX - rect.left;
     const y = touch.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const tiltX = (y - centerY) / centerY * 10;
-    const tiltY = (centerX - x) / centerX * 10;
-    card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+
+    cancelAnimationFrame(tiltRequestId);
+    tiltRequestId = requestAnimationFrame(() => applyTilt(x, y, rect));
   });
 
   card.addEventListener('touchend', () => {
+    isTouching = false;
+    cancelAnimationFrame(tiltRequestId);
     card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
   });
 });
