@@ -6,6 +6,7 @@ body {
   color: #ffffff;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  touch-action: manipulation; /* Optimize touch interactions */
 }
 
 /* Header */
@@ -776,15 +777,40 @@ footer {
 
   .footer-container {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1rem;
     text-align: center;
+  }
+
+  .footer-section h3 {
+    font-size: clamp(1.3rem, 3vw, 1.5rem);
+  }
+
+  .footer-section ul li,
+  .contact-details p {
+    font-size: clamp(0.95rem, 2vw, 1rem);
+    margin: 0.85rem 0;
   }
 
   .social-links {
     justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .social-links a {
+    font-size: clamp(1.4rem, 3vw, 1.6rem);
   }
 
   .footer-bg {
-    font-size: clamp(1.5rem, 5vw, 3rem);
+    font-size: clamp(1.2rem, 4vw, 2rem);
+    animation: waveText 15s linear infinite, fadePulse 5s ease-in-out infinite;
+    opacity: 0.08;
+  }
+
+  .footer-bottom {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
   }
 }
 
@@ -821,21 +847,33 @@ footer {
     font-size: 0.9rem;
   }
 
+  .footer-container {
+    gap: 1.2rem;
+    padding: 0 0.75rem;
+  }
+
   .footer-section h3 {
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-size: clamp(1.2rem, 2.8vw, 1.4rem);
   }
 
   .footer-section ul li,
   .contact-details p {
-    font-size: 0.9rem;
-    margin: 0.5rem 0;
-  }
-
-  .footer-bg {
-    font-size: clamp(1rem, 4vw, 2rem);
+    font-size: clamp(0.9rem, 1.8vw, 0.95rem);
+    margin: 0.75rem 0;
   }
 
   .social-links a {
-    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+  }
+
+  .footer-bg {
+    font-size: clamp(1rem, 3.5vw, 1.5rem);
+    opacity: 0.06;
+  }
+
+  .footer-bottom {
+    font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+    padding-top: 1.2rem;
+    margin-top: 1.2rem;
   }
 }
